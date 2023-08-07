@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #230c21;
+  color: #fff;
+  font-family: sans-serif;
+  margin-bottom: 100px;
+}
+
+.app {
+  text-align: center;
+  padding: 30px;
+}
+
+.header {
+  margin: 30px;
+}
+
+.container {
+  display: flex;
+  background-color: #32172b;
+  padding: 20px 0;
+}
+
+.singer {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.singer .singer_img {
+  width: 400px;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.singer .singer_img img {
+  display: block;
+  width: 100%;
+}
+
+.singer .singer_img img:hover {
+  transform: scale(1.1);
+  transition: all 1s ease;
+}
+
+.singer p {
+  margin: 20px 0;
+  font-size: 24px;
+}
+
+.song_list {
+  flex: 1;
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.song_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.song_heading div {
+  /* flex: 1; */
+  text-align: left;
+}
+
+.song_heading .song_heading-title {
+  width: 40%;
+}
+
+.song_heading .song_heading-singer {
+  width: 40%;
+}
+
+.song_heading .song_heading-other {
+  width: 20%;
+  text-align: right;
+}
+
+.song_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 12px 20px;
+  background-color: #492e42;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.song_item .song_item-title {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.song_item .song_item-title img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+.song_item .song_item-singer {
+  width: 40%;
+}
+
+.song_item .song_item-other {
+  width: 20%;
+  text-align: right;
+}
+
+.heart-icon {
+  display: none;
+  margin-right: 10px;
+}
+
+.song_item:hover .heart-icon,
+.song_item.active .heart-icon {
+  display: inline-block;
+}
+
+.song_item:hover,
+.song_item.active {
+  background-color: #6d4a63;
+}
+
+
+.app .player-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #140c1c;
+  padding: 12px 50px;
+  /* height: 70px; */
+}
+
+.app .player-controls_item {
+  flex: 1;
+}
+
+.app .player-controls_left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.app .player-controls_left img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.app .player-controls_left img.active {
+  animation: rotateAnimation 8s infinite linear;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg); /* Xoay từ 0 độ */
+  }
+  100% {
+    transform: rotate(360deg)
+  } 
+}
+
+.app .player-controls_left-name {
+  margin-left: 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.app .player-controls_left-name-title {
+  color: #fff;
+}
+
+.app .player-controls_left-name-singer {
+  color: #3e3843;
+  margin-top: 4px;
+}
+
+.app .player-controls_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* button */
+.btns {
+  display: flex;
+  align-items: center;
+}
+
+.btns button {
+  width: 34px;
+  height: 34px;
+  margin: 0 6px;
+  font-size: 18px;
+  background-color: transparent;
+  color: #eee;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.btns button:hover {
+  background-color: #ffffff1a;
+}
+
+button.btn-player {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  border: 1px solid #eee;
+}
+
+button.btn-player:hover {
+  color: #c273ed;
+  background-color: transparent;
+  border: 1px solid #c273ed;
+}
+
+.shuffle-active {
+  color: #c273ed;
+}
+
+.repeat-icon {
+  color: #c273ed;
+}
+
+.repeat-icon-one {
+  position: relative;
+}
+
+.repeat-icon-one::after {
+  position: absolute;
+  top: 47%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  content: '1';
+  font-size: 8px;
+  font-weight: 600;
+  color: #c273ed;
+}
+
+/* .btns button:hover .repeat-icon-one::after {
+  background-color: #ffffff1a;
+} */
+/* end button */
+
+.app .time {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.app .time span {
+  margin: 0 10px;
+}
+
+.app .input_range {
+  width: 200px;
+}
+
+.app .player-controls_right {
+  text-align: right;
+}
+
+.app .mute {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.app .mute label {
+  margin-right: 5px;
+}
